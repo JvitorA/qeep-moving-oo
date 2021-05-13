@@ -8,11 +8,11 @@ public class Carro {
 	//carro e o método pintar(), que será responsável por mudar a cor do carro. 
 	//Crie um carro no seu programa principal, utilize os métodos criados e mostre 
 	//na tela o preço e a cor do carro antes e depois da utilização dos métodos.
-	String nome;
-	float peso;
-	String fabricante;
-	String cor;
-	float valor;
+	private String nome;
+	private float peso;
+	private String fabricante;
+	private String cor;
+	private float valor;
 	
 	public Carro(String nome, float peso, String fabricante, String cor, float valor) {
 		this.nome = nome;
@@ -37,5 +37,26 @@ public class Carro {
 	public void pintar(String novaCor) {
 		this.cor = novaCor;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public float getPeso() {
+		return peso;
+	}
+
+	public String getFabricante() {
+		return fabricante;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public float getValor() {
+		return valor;
+	}
+	
 
 }

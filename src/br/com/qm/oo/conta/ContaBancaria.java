@@ -8,9 +8,9 @@ public class ContaBancaria {
 	// o método depósito() que serve para adiconar um valor ao saldo e o método extrato() 
 	// que serve para mostrar na tela o nome do correntista, o número da conta e o saldo. 
 	// Crie um programa principal e demonstre a utilização dos métodos implementados.
-	int nroConta;
-	float saldo;
-	String nomeCorrentista;
+	private int nroConta;
+	private float saldo;
+	private String nomeCorrentista;
 	
 	public ContaBancaria(int nroConta, String nomeCorrentista) {
 		this.nroConta = nroConta;
