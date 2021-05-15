@@ -1,6 +1,6 @@
 package br.com.qm.oo.empresa;
 
-public class Funcionario {
+public abstract class Funcionario {
 
 	private String nome;
 	private String cpf;
@@ -14,9 +14,7 @@ public class Funcionario {
 		this.horasSemanais = horasSemanais;
 	}
 	
-	public void aumentaSalario() {
-		this.salario = this.salario * 1.3;
-	}
+	public abstract void aumentaSalario();
 
 	public double getSalario() {
 		return salario;

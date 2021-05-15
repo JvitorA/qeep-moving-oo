@@ -18,7 +18,7 @@ public class Programador extends Funcionario {
 		if (this.linguagem == "Java") {
 			super.setSalario(super.getSalario() * 1.5);
 		} else {
-			super.aumentaSalario();
+			super.setSalario(super.getSalario() * 1.2);
 		}
 	}
 

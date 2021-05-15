@@ -39,6 +39,11 @@ public class LiderTecnico extends Funcionario{
 			}
 		}
 	}
+
+	@Override
+	public void aumentaSalario() {
+		super.setSalario(super.getSalario() * 1.1);
+	}
 	
 	// {0, 0, 0, 0}
 	// {"José", "José", null, null}
