@@ -26,15 +26,21 @@ public class Elevador {
 	}
 	
 	public void entra() {
+		
 		if (qtdPessoas < capacidade) {
 			qtdPessoas++;
+			return;
 		}
+		
+		throw new CargaElevadorException("O elevador está cheio!");
 	}
 	
-	public void sai() {
+	public void sai() throws CargaElevadorException {
 		if (qtdPessoas > 0) {
 			qtdPessoas--;
 		}
+		
+		throw new CargaElevadorException("O elevador já está vazio");
 	}
 	
 	public void sobe() {
