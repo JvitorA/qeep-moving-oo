@@ -147,7 +147,7 @@ public class ProgramaPrincipal {
 		
 	}
 	
-	private static void imprimirFolha(Professor[] professores, Coordenador[] coordenadores,
+	public static void imprimirFolha(Professor[] professores, Coordenador[] coordenadores,
 			FuncionarioAdministrativo[] funcionariosAdm) {
 		
 		System.out.println("--- FOLHA DE PAGAMENTO ---");
@@ -181,6 +181,60 @@ public class ProgramaPrincipal {
 		System.out.printf("\nTotal de pagamentos deste mês ----------- R$%.2f\n", total);
 	}
 	
+	public static void menuCoordenadores(Scanner teclado, Coordenador[] coordenadores, Professor[] professores) {
+		
+		
+		
+		int opcaoMenuCoordenadores = 0;
+		do {
+			System.out.println("--- Menu Coordenadores ---");
+			System.out.println("1 - Para adicionar um coordenador");
+			System.out.println("2 - Para listar os coordenadores");
+			System.out.println("3 - Para consultar um coordenador pelo cpf");
+			System.out.println("4 - Para remover um coordenador");
+			System.out.println("5 - Para adicionar um professor à lista de um coordenador");
+			System.out.println("0 - Para voltar ao menu anterior");
+			
+			
+			opcaoMenuCoordenadores = teclado.nextInt();
+			switch (opcaoMenuCoordenadores) {
+				case 1:
+					Coordenador coordenador = new Coordenador("Rogério", "0003", 541, "Faculdade de Computação", 50000);
+					coordenadores[0] = coordenador;
+					System.out.println("Coordenador adicionado com sucesso");
+					break;
+				case 2:
+					System.out.println(coordenadores[0]);
+					break;
+				case 5:
+					// System.out.println("Digite o CPF do coordenador: ");
+					// String cpf = teclado.next();
+					// Percorrer o array de coordenadores pra encontrar o coordenador escolhido.
+					Coordenador cordenadorSupervisor = coordenadores[0];
+					Professor professorAdicionado = buscaProfessor(teclado, professores);
+					// Chamar o método adicionaProfessor sobre o coordenado encontrado, passando como parâmetro o professor escolhido
+					try {
+					
+						cordenadorSupervisor.adicionaProfessor(professorAdicionado);
+					
+					} catch (UniversidadeException e) {
+						System.out.println(e.getMensagem());
+					}
+					break;
+				case 0:
+					System.out.println("Retornando ao menu anterior");
+					break;
+				default:
+					System.out.println("Oção inválida");
+			}
+			
+			
+		} while (opcaoMenuCoordenadores != 0);
+		
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		// Sistema pra gerir a universidade
 		// Inicializar a universidade (especificar quantos profissionais ela tem 
@@ -192,6 +246,12 @@ public class ProgramaPrincipal {
 		
 		// Aumentar o salário de um funcionário pelo seu cpf
 		// Imprimir a folha de pagamento da universidade
+		
+		
+		//4. Refatore o sistema referente a Universidade para trabalhar com exceções em comportamentos problemáticos 
+		// Ex: Inserir um professor pro coordenador). 
+		// Nesse processo tanto as classes deverão ser alteradas quanto o programa principal.
+		
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("--- UNIVERSIDADE QEEP MOVING ---");
 		System.out.println("Quantos professores podem existir na sua universidade?");
@@ -224,7 +284,7 @@ public class ProgramaPrincipal {
 					menuProfessores(teclado, professores);
 					break;
 				case 2:
-					//menuCoordenadores();
+					menuCoordenadores(teclado, coordenadores, professores);
 					break;
 				case 3: 
 					//menuFuncionariosAdm();
@@ -245,5 +305,4 @@ public class ProgramaPrincipal {
 		teclado.close();
 	}
 
-	
 }
